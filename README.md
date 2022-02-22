@@ -1,16 +1,38 @@
 # extrucal
 
-Provides functions for calculating various parameters in extrusion processes
+**Author:** John Lee
+
+`extrucal` provides functions for calculating throughput in extrusion processes and for generating tables and plots for throughput with respect to screw RPM and channel depth in metering section.
+
+A large portion of arguments for the functions were given the typical values. The arguments for functions are as follows:
+ screw size, channel depth, polymer melt density, screw RPM, screw pitch, flight width, number of flights
 
 ## Installation
+
+`extrucal` can be installed PyPI using the following terminal command:
 
 ```bash
 $ pip install extrucal
 ```
 
+## Package Functions
+
+- `throughput()`
+  - This function calculates the extrusion throughput (Drag Flow) given the screw size, RPM, the channel depth of metering channel, and screw pitch
+  
+- `throughput_table()`
+  - This function generates a table containing the extrusion throughput with respect to channel depth and screw RPM
+  
+- `throughput_plot()`
+  - This function generates a plot containing the extrusion throughput with respect to channel depth and screw RPM
+
 ## Usage
 
-- TODO
+`extrucal` can be used to calculate throughput in extrusion processes and to generate table and plot for throughput as a function of screw RPM and channel depth in the metering section of screw
+
+```python
+from extrucal.extrucal import throughput, throughput_table, throughput_plot
+```
 
 ## Contributing
 
