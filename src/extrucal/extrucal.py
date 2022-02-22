@@ -254,9 +254,7 @@ def throughput_table(
         table[f"depth={d}"] = throughput_list
         throughput_list = []
     table_df = pd.DataFrame(table, index=rpm_title)
-    print(
-        f"\n\033[1mThroughput[kg/hr] at {min_rpm}~{max_rpm}RPM for channel depths from {min_depth} to {max_depth}mm\033[0m\n"
-    )
+
     return table_df
 
 

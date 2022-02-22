@@ -147,11 +147,12 @@ def test_input_data():
     with pytest.raises(ValueError):
         throughput_plot(200, 800, n_flight=3)
 
-
 def test_output():
     """
     Check if the returned output is correct
     """
+    # Test the output of throughput()
+    
     expected1 = 23.51
     actual1 = throughput(200, 10, 800, rpm=1, pitch=200, w_flight=20, n_flight=1)
     assert actual1 == expected1, "Calculated Value is wrong!!!"
@@ -167,3 +168,39 @@ def test_output():
     expected4 = 12.24
     actual4 = throughput(150, 6.8, 800, rpm=1, pitch=206, w_flight=9, n_flight=1)
     assert actual4 == expected4, "Calculated Value is wrong!!!"
+
+    # Test the output of throughput_table()
+    
+    expected5 = 10
+    actual5 = len(throughput_table(200, 1000))
+    assert actual5 == expected5, "The number of rows doesn't match!!!"
+    
+    expected6 = 9
+    actual6 = len(throughput_table(200, 1000, min_rpm=6))
+    assert actual6 == expected6, "The number of rows doesn't match!!!"
+    
+    expected7 = 2
+    actual7 = len(throughput_table(200, 1000, max_rpm=14))
+    assert actual7 == expected7, "The number of rows doesn't match!!!"
+    
+    expected8 = 8
+    actual8 = len(throughput_table(200, 1000).columns)
+    assert actual8 == expected8, "The number of columns doesn't match!!!"
+
+    expected9 = 3
+    actual9 = len(throughput_table(200, 1000, max_depth=9).columns)
+    assert actual9 == expected9, "The number of columns doesn't match!!!"
+    
+    expected10 = 2
+    actual10 = len(throughput_table(200, 1000, min_depth=16).columns)
+    assert actual10 == expected10, "The number of columns doesn't match!!!"
+    
+    # Test the output of throughput_plot()
+    
+    test_plot = throughput_plot(200, 1000)
+    assert str(type(test_plot)) == "<class 'altair.vegalite.v4.api.Chart'>"
+    assert test_plot.encoding.x.shorthand == 'RPM', "'RPM' should be mapped to the x axis"
+    assert test_plot.encoding.y.shorthand == 'throughput', "'throughput' should be mapped to the y axis"
+    assert test_plot.mark == 'circle', "mark should be a circle"
+    tooltip = "[Tooltip({\n  shorthand: 'RPM'\n}), Tooltip({\n  shorthand: 'depth'\n}), Tooltip({\n  shorthand: 'throughput'\n})]"
+    assert str(throughput_plot(200, 1000).encoding.tooltip) == tooltip
