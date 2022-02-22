@@ -34,6 +34,19 @@ $ pip install extrucal
 from extrucal.extrucal import throughput, throughput_table, throughput_plot
 ```
 
+## Dependencies
+
+-   Python 3.9 and Python packages:
+
+    -   pandas==1.4.1
+    -   numpy==1.22.2
+    -   ipykernel==6.9.1
+    -   altair-saver==0.5.0
+
+## Documentation
+
+Documentation `extrucal` can be found at [Read the Docs](https://extrucal.readthedocs.io/en/latest/)
+
 ## Contributing
 
 Interested in contributing? Check out the contributing guidelines. Please note that this project is released with a Code of Conduct. By contributing to this project, you agree to abide by its terms.
