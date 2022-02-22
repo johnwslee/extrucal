@@ -8,6 +8,8 @@ def throughput(size, depth, density, rpm=1, pitch=None, w_flight=None, n_flight=
     """
     Calculates the extrusion throughput (Drag Flow) given the screw size, RPM,
     the channel depth of metering channel, and screw pitch
+    
+    Parameters
     ----------
     size     : int or float
                Screw size [mm]
@@ -30,7 +32,8 @@ def throughput(size, depth, density, rpm=1, pitch=None, w_flight=None, n_flight=
 
     Returns
     -------
-    float : volumetric throughput per rpm [kg/hr-RPM]
+    throughput : float
+                 exturion throughput [kg/hr-RPM]
 
     Examples
     --------
@@ -126,6 +129,8 @@ def throughput_table(
     """
     Generate a table containing the extrusion throughput with respect to 
     channel depth and screw RPM
+    
+    Parameters
     ----------
     size        : int or float
                   screw size [mm]
@@ -266,6 +271,8 @@ def throughput_plot(
     """
     Generates a plot containing the extrusion throughput with respect to 
     channel depth and screw RPM
+    
+    Parameters
     ----------
     size        : int or float
                   screw size [mm]
