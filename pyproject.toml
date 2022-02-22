@@ -5,6 +5,9 @@ description = "Provides functions for calculating various parameters in extrusio
 authors = ["John Lee"]
 license = "MIT"
 readme = "README.md"
+homepage = "https://github.com/johnwslee/extrucal"
+repository = "https://github.com/johnwslee/extrucal"
+documentation = "https://extrucal.readthedocs.io/en/latest/"
 
 [tool.poetry.dependencies]
 python = "^3.9"

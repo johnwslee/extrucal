@@ -45,7 +45,7 @@ from extrucal.extrucal import throughput, throughput_table, throughput_plot
 
 ## Documentation
 
-Documentation `extrucal` can be found at [Read the Docs](https://extrucal.readthedocs.io/en/latest/)
+Documentation `extrucal` can be found at [Read the Docs](https://extrucal.readthedocs.io/)
 
 ## Contributing
 
