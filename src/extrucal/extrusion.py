@@ -4,7 +4,7 @@ import altair as alt
 
 
 
-def throughput(size, depth, density, rpm=1, pitch=None, w_flight=None, n_flight=1):
+def throughput_cal(size, depth, density, rpm=1, pitch=None, w_flight=None, n_flight=1):
     """
     Calculates the extrusion throughput (Drag Flow) given the screw size, RPM,
     the channel depth of metering channel, and screw pitch
@@ -37,7 +37,7 @@ def throughput(size, depth, density, rpm=1, pitch=None, w_flight=None, n_flight=
 
     Examples
     --------
-    >>> throughput(size=200, depth=10, density=800)
+    >>> throughput_cal(size=200, depth=10, density=800)
     """
 
     # Test input type
@@ -256,7 +256,7 @@ def throughput_table(
     rpm_title = [f"rpm={k}" for k in np.arange(min_rpm, max_rpm+0.1, delta_rpm)]
     for d in depth:
         for r in rpm:
-            throughput_list.append(throughput(size, d, density, r, pitch, w_flight, n_flight))
+            throughput_list.append(throughput_cal(size, d, density, r, pitch, w_flight, n_flight))
         table[f"depth={d}"] = throughput_list
         throughput_list = []
     table_df = pd.DataFrame(table, index=rpm_title)
@@ -397,7 +397,7 @@ def throughput_plot(
     rpm = [j for j in np.arange(min_rpm, max_rpm+0.1, delta_rpm)]
     for d in depth:
         for r in rpm:
-            throughput_list.append(throughput(size, d, density, r, pitch, w_flight, n_flight))
+            throughput_list.append(throughput_cal(size, d, density, r, pitch, w_flight, n_flight))
         table[d] = throughput_list
         throughput_list = []
     table_df = pd.DataFrame(table, index=rpm)

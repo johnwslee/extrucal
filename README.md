@@ -21,7 +21,7 @@ $ pip install extrucal
 
 ## Package Functions
 
-- `throughput()`
+- `throughput_cal()`
   - This function calculates the extrusion throughput (Drag Flow) given the screw size, RPM, the channel depth of metering channel, and screw pitch
   
 - `throughput_table()`
@@ -35,7 +35,7 @@ $ pip install extrucal
 `extrucal` can be used to calculate throughput in extrusion processes and to generate table and plot for throughput as a function of screw RPM and channel depth in the metering section of screw
 
 ```python
-from extrucal.extrucal import throughput, throughput_table, throughput_plot
+from extrucal.extrusion import throughput_cal, throughput_table, throughput_plot
 ```
 
 ## Dependencies
