@@ -1,8 +1,8 @@
-from extrucal.extrucal import throughput, throughput_table, throughput_plot
 import pytest
 import pandas as pd
 import numpy as np
 import altair as alt
+from extrucal.extrucal import throughput, throughput_table, throughput_plot
 alt.renderers.enable('html')
 
 def test_input_data():
