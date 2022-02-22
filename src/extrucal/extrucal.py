@@ -3,6 +3,7 @@ import numpy as np
 import altair as alt
 
 
+
 def throughput(size, depth, density, rpm=1, pitch=None, w_flight=None, n_flight=1):
     """
     Calculates the extrusion throughput (Drag Flow) given the screw size, RPM,
@@ -123,7 +124,7 @@ def throughput_table(
     max_depth=None, delta_depth=None, min_rpm=5, max_rpm=50, delta_rpm=5
 ):
     """
-    Generate a table containing the volumetric throughput with respect to 
+    Generate a table containing the extrusion throughput with respect to 
     channel depth and screw RPM
     ----------
     size        : int or float
@@ -263,7 +264,7 @@ def throughput_plot(
     max_depth=None, delta_depth=None, min_rpm=0, max_rpm=50, delta_rpm=1
 ):
     """
-    Generates a plot containing the volumetric throughput with respect to 
+    Generates a plot containing the extrusion throughput with respect to 
     channel depth and screw RPM
     ----------
     size        : int or float
