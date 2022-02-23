@@ -2,6 +2,13 @@
 
 <!--next-version-placeholder-->
 
+## v1.4.0 (2022-02-23)
+### Feature
+* Finalize the function sets ([`a07413b`](https://github.com/johnwslee/extrucal/commit/a07413b00b16a1730ac6092daaa674678d4c0901))
+
+### Fix
+* Minor modification in test_sheet_extrusion.py ([`2aafd06`](https://github.com/johnwslee/extrucal/commit/2aafd069302eb2cd64e2957d5bcc1eab4d055ab4))
+
 ## v1.3.0 (2022-02-23)
 ### Feature
 * Adds additional function ([`b2b29a4`](https://github.com/johnwslee/extrucal/commit/b2b29a4404cf157b9b23071a992aa4b58c1fadd9))
