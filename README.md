@@ -54,6 +54,18 @@ $ pip install extrucal
 - `tube_plot()`
   - This function generate a plot containing the required screw RPM with respect to line speed and extruder size
 
+**4. functions in `extrucal.rod_extrusion`**
+
+- `rod_cal()`
+  - This function calculates the required throughput for rods given the outer diameter, line speed, solid polymer density, and number of die holes
+  
+- `rod_table()`
+  - This function generate a table containing the required screw RPM with respect to line speed and extruder size
+  
+- `rod_plot()`
+  - This function generate a plot containing the required screw RPM with respect to line speed and extruder size
+
+
 ## Usage
 
 `extrucal` can be used to calculate extrusion throughput and to generate tables and plots of various parameters in extrusion processes
@@ -62,6 +74,7 @@ $ pip install extrucal
 from extrucal.extrusion import throughput_cal, throughput_table, throughput_plot
 from extrucal.cable_extrusion import cable_cal, cable_table, cable_plot
 from extrucal.tube_extrusion import tube_cal, tube_table, tube_plot
+from extrucal.rod_extrusion import rod_cal, rod_table, rod_plot
 ```
 
 ## Dependencies
@@ -75,7 +88,7 @@ from extrucal.tube_extrusion import tube_cal, tube_table, tube_plot
 
 ## Documentation
 
-Documentation `extrucal` can be found at [Read the Docs](https://extrucal.readthedocs.io/)
+Documentation `extrucal` can be found at [Read the Docs](https://extrucal.readthedocs.io/en/latest/index.html)
 
 ## Contributing
 

@@ -26,7 +26,7 @@ def tube_cal(outer_d, inner_d, l_speed, s_density):
                  required exturion throughput [kg/hr]
     Examples
     --------
-    >>> tube_cal(outer_d=10, inner_d=6, l_speed = 10, density=1000)
+    >>> tube_cal(outer_d=10, inner_d=6, l_speed = 10, s_density=1000)
     """
     # Test input type
     if not isinstance(outer_d, int):
@@ -106,7 +106,7 @@ def tube_table(
             dataframe containing the required screw RPM as a function of line speed and extruder size
     Examples
     --------
-    >>> tube_table(outer_d=10, inner_d=6, density=1000)
+    >>> tube_table(outer_d=10, inner_d=6, s_density=1000)
     """
     # Test input type
     if not isinstance(outer_d, int):
@@ -227,7 +227,7 @@ def tube_plot(
 
     Examples
     --------
-    >>> tube_plot(outer_d=10, thickness=2, density=1000)
+    >>> tube_plot(outer_d=10, thickness=2, s_density=1000)
     """
     # Test input type
     if not isinstance(outer_d, int):

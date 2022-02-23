@@ -4,21 +4,22 @@ import altair as alt
 from extrucal.extrusion import throughput_cal
 
 
-def cable_cal(outer_d, thickness, l_speed, s_density):
+def rod_cal(outer_d, l_speed, s_density, n_holes=1):
     """
-    Calculates the required throughput for cables given the outer diameter, 
-    thickness, line speed, and solid polymer density
+    Calculates the required throughput for rods given the outer diameter, 
+    line speed, solid polymer density, and number of die holes
     
     Parameters
     ----------
     outer_d     : int or float
                   Outer diameter [mm]
-    thickness   : int or float
-                  Insulation thickness [mm]
     l_speed     : int or float
                   Line speed [mpm]
     s_density   : int or float
                   Solid density of polymeric material [kg/m^3]
+    n_holes     : int
+                  Number of die holes [ea]
+                  Default value is 1 (1ea)
 
     Returns
     -------
@@ -26,42 +27,37 @@ def cable_cal(outer_d, thickness, l_speed, s_density):
                  required exturion throughput [kg/hr]
     Examples
     --------
-    >>> cable_cal(outer_d=10, thickness=2, l_speed = 10, s_density=1000)
+    >>> rod_cal(outer_d=5, l_speed = 10, s_density=1000, n_holes=10)
     """
     # Test input type
     if not isinstance(outer_d, int):
         if not isinstance(outer_d, float):
             raise TypeError("'outer_d' should be either integer or float")
-    if not isinstance(thickness, int):
-        if not isinstance(thickness, float):
-            raise TypeError("'thickness' should be either integer or float")
     if not isinstance(l_speed, int):
         if not isinstance(l_speed, float):
             raise TypeError("'l_speed' should be either integer or float")
     if not isinstance(s_density, int):
         if not isinstance(s_density, float):
             raise TypeError("'s_density' should be either integer or float")
-    
+    if not isinstance(n_holes, int):
+        raise TypeError("'n_holes' should be integer")
+
     # Test input value
-    if thickness > outer_d/2:
-        raise ValueError("Thickness can't be greater than radius")
     if s_density < 300:
         raise ValueError("This is not solid density for polymers. Too low!!")
     if s_density > 3000:
         raise ValueError("This is not solid density for polymers. Too high!!")
 
     # Calculate basic variables
-    inner_d = outer_d - (2*thickness)
     outer_r = outer_d / 2
-    inner_r = inner_d / 2
-    insul_area = np.pi*((outer_r**2)-(inner_r**2)) / 1000000
-    req_throughput = l_speed * insul_area * 60 * s_density
-    
-    return round(req_throughput, 3)
-  
+    extrude_area = np.pi*(outer_r**2) * n_holes / 1000000
+    req_throughput = l_speed * extrude_area * 60 * s_density
 
-def cable_table(
-    outer_d, thickness, s_density, density_ratio=0.85, min_l_speed=1, 
+    return round(req_throughput, 3)
+
+
+def rod_table(
+    outer_d, s_density, n_holes=1, density_ratio=0.85, min_l_speed=1, 
     max_l_speed=10, delta_l_speed=1, min_size=20, max_size=100, delta_size=20, 
     depth_percent=0.05
 ):
@@ -73,10 +69,11 @@ def cable_table(
     ----------
     outer_d       : int or float
                     Outer diameter [mm]
-    thickness     : int or float
-                    Insulation thickness [mm]
     s_density     : int or float
                     Solid density of polymeric material [kg/m^3]
+    n_holes       : int
+                    Number of die holes [ea]
+                    Default value is 1 (1ea)
     density_ratio : int or float
                     Ratio b/w solid and melt density
     min_l_speed   : int or float
@@ -107,18 +104,17 @@ def cable_table(
             dataframe containing the required screw RPM as a function of line speed and extruder size
     Examples
     --------
-    >>> cable_table(outer_d=10, thickness=2, s_density=1000)
+    >>> rod_table(outer_d=5, s_density=1000)
     """
     # Test input type
     if not isinstance(outer_d, int):
         if not isinstance(outer_d, float):
             raise TypeError("'outer_d' should be either integer or float")
-    if not isinstance(thickness, int):
-        if not isinstance(thickness, float):
-            raise TypeError("'thickness' should be either integer or float")
     if not isinstance(s_density, int):
         if not isinstance(s_density, float):
             raise TypeError("'s_density' should be either integer or float")
+    if not isinstance(n_holes, int):
+        raise TypeError("'n_holes' should be integer")
     if not isinstance(density_ratio, int):
         if not isinstance(density_ratio, float):
             raise TypeError("'density_ratio' should be either integer or float")
@@ -145,8 +141,7 @@ def cable_table(
             raise TypeError("'depth_percent' should be either integer or float")
 
     # Test input value
-    if thickness > outer_d/2:
-        raise ValueError("Thickness can't be greater than radius")
+
     if s_density < 300:
         raise ValueError("This is not solid density for polymers. Too low!!")
     if s_density > 3000:
@@ -172,7 +167,7 @@ def cable_table(
     size_title = [f"{k}mm Ext" for k in np.arange(min_size, max_size+0.1, delta_size)]
     for l in l_speed:
         for s in size:
-            rpm_list.append(cable_cal(outer_d, thickness, l, s_density)/throughput_cal(s, s*depth_percent, s_density*density_ratio))
+            rpm_list.append(rod_cal(outer_d, l, s_density, n_holes)/throughput_cal(s, s*depth_percent, s_density*density_ratio))
         table[f"{l}mpm"] = rpm_list
         rpm_list = []
     table_df = pd.DataFrame(table, index=size_title)
@@ -180,8 +175,8 @@ def cable_table(
     return table_df
 
 
-def cable_plot(
-    outer_d, thickness, s_density, density_ratio=0.85, min_l_speed=1, 
+def rod_plot(
+    outer_d, s_density, n_holes=1, density_ratio=0.85, min_l_speed=1, 
     max_l_speed=10, delta_l_speed=1, min_size=20, max_size=100, delta_size=1, 
     depth_percent=0.05
 ):
@@ -193,15 +188,16 @@ def cable_plot(
     ----------
     outer_d       : int or float
                     Outer diameter [mm]
-    thickness     : int or float
-                    Insulation thickness [mm]
     s_density     : int or float
                     Solid density of polymeric material [kg/m^3]
+    n_holes       : int
+                    Number of die holes [ea]
+                    Default value is 1 (1ea)
     density_ratio : int or float
                     Ratio b/w solid and melt density
     min_l_speed   : int or float
                     Minimum line speed for calculation [mm]
-                    Default value is 0 (0mpm)
+                    Default value is 1 (1mpm)
     max_l_speed   : int or float
                     Maximum line speed for calculation [mpm]
                     Default value is 10 (10mpm)
@@ -216,7 +212,7 @@ def cable_plot(
                     Default value is 100 (100mm)
     delta_size    : int or float
                     Amount of increment in extruder size for calculation [mm]
-                    Default value is 5 (5mm)
+                    Default value is 20 (20mm)
     depth_percent : int or float
                     Percentage of the depth of metering channel compared to extruder size
                     Default value is 0.05
@@ -228,18 +224,17 @@ def cable_plot(
 
     Examples
     --------
-    >>> cable_plot(outer_d=10, thickness=2, s_density=1000)
+    >>> rod_plot(outer_d=5, s_density=1000)
     """
     # Test input type
     if not isinstance(outer_d, int):
         if not isinstance(outer_d, float):
             raise TypeError("'outer_d' should be either integer or float")
-    if not isinstance(thickness, int):
-        if not isinstance(thickness, float):
-            raise TypeError("'thickness' should be either integer or float")
     if not isinstance(s_density, int):
         if not isinstance(s_density, float):
             raise TypeError("'s_density' should be either integer or float")
+    if not isinstance(n_holes, int):
+        raise TypeError("'n_holes' should be integer")
     if not isinstance(density_ratio, int):
         if not isinstance(density_ratio, float):
             raise TypeError("'density_ratio' should be either integer or float")
@@ -266,8 +261,7 @@ def cable_plot(
             raise TypeError("'depth_percent' should be either integer or float")
 
     # Test input value
-    if thickness > outer_d/2:
-        raise ValueError("Thickness can't be greater than radius")
+
     if s_density < 300:
         raise ValueError("This is not solid density for polymers. Too low!!")
     if s_density > 3000:
@@ -292,7 +286,7 @@ def cable_plot(
     size = [j for j in np.arange(min_size, max_size+0.1, delta_size)]
     for l in l_speed:
         for s in size:
-            rpm_list.append(cable_cal(outer_d, thickness, l, s_density)/throughput_cal(s, s*depth_percent, s_density*density_ratio))
+            rpm_list.append(rod_cal(outer_d, l, s_density, n_holes=1)/throughput_cal(s, s*depth_percent, s_density*density_ratio))
         table[l] = rpm_list
         rpm_list = []
     table_df = pd.DataFrame(table, index=size)
