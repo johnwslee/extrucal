@@ -2,6 +2,9 @@
 
 <!--next-version-placeholder-->
 
+## v1.4.1 (2022-02-23)
+
+
 ## v1.4.0 (2022-02-23)
 ### Feature
 * Finalize the function sets ([`a07413b`](https://github.com/johnwslee/extrucal/commit/a07413b00b16a1730ac6092daaa674678d4c0901))
