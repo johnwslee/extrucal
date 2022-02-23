@@ -69,7 +69,7 @@ $ pip install extrucal
 **5. Functions in `extrucal.sheet_extrusion`**
 
 - `sheet_cal()`
-  - This function calculates the required throughput for sheets given the outer diameter, line speed, solid polymer density, and number of die holes
+  - This function calculates the required throughput for sheets given the width, thickness, line speed, solid polymer density, and number of die holes
   
 - `sheet_table()`
   - This function generate a table containing the required screw RPM with respect to line speed and extruder size

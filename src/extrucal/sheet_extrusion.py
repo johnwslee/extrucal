@@ -6,7 +6,7 @@ from extrucal.extrusion import throughput_cal
 
 def sheet_cal(width, thickness, l_speed, s_density):
     """
-    Calculates the required throughput for cables given the outer diameter, 
+    Calculates the required throughput for sheets given the width, 
     thickness, line speed, and solid polymer density
     
     Parameters
