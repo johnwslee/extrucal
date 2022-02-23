@@ -34,13 +34,24 @@ $ pip install extrucal
 
 **2. functions in `extrucal.cable_extrusion`**
 
-- `req_throughput_cal()`
-  - This function calculates the required throughput given the outer diameter, inner diameter, line speed, and solid polymer density
+- `cable_cal()`
+  - This function calculates the required throughput for cables given the outer diameter, thickness, line speed, and solid polymer density
   
-- `req_rpm_table()`
+- `cable_table()`
   - This function generate a table containing the required screw RPM with respect to line speed and extruder size
   
-- `req_rpm_plot()`
+- `cable_plot()`
+  - This function generate a plot containing the required screw RPM with respect to line speed and extruder size
+
+**3. functions in `extrucal.tube_extrusion`**
+
+- `tube_cal()`
+  - This function calculates the required throughput for tubes given the outer diameter, inner diameter, line speed, and solid polymer density
+  
+- `tube_table()`
+  - This function generate a table containing the required screw RPM with respect to line speed and extruder size
+  
+- `tube_plot()`
   - This function generate a plot containing the required screw RPM with respect to line speed and extruder size
 
 ## Usage
@@ -49,7 +60,8 @@ $ pip install extrucal
 
 ```python
 from extrucal.extrusion import throughput_cal, throughput_table, throughput_plot
-from extrucal.cable_extrusion import req_throughput_cal, req_rpm_table, req_rpm_plot
+from extrucal.cable_extrusion import cable_cal, cable_table, cable_plot
+from extrucal.tube_extrusion import tube_cal, tube_table, tube_plot
 ```
 
 ## Dependencies
