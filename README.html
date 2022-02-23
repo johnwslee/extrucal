@@ -171,8 +171,8 @@ pre code {
 <div id="extrucal" class="section level1">
 <h1>extrucal</h1>
 <p><strong>Author:</strong> John W.S. Lee</p>
-<p><code>extrucal</code> provides functions for calculating throughput in extrusion processes and for generating tables and plots for throughput with respect to screw RPM and channel depth in metering section.</p>
-<p>A large portion of arguments for the functions were given the typical values. The arguments for functions are as follows: screw size, channel depth, polymer melt density, screw RPM, screw pitch, flight width, number of flights</p>
+<p><code>extrucal</code> provides functions that calculate throughputs and screw RPMs for various types of extrusion processes. Theoretical throughputs can be calculated by using the screw geometry and the processing condition, whereas the throughputs required for extruded products(cable, tube, rod, and sheet) can be calculated by using the product geometry. Based on these calculated throughputs, <code>extrucal</code> functions can generate tables and plots that show the processing windows considering extruder size, line speed, and screw RPM.</p>
+<p>A large portion of arguments for the functions are given the typical values. Some of the arguments for functions are as follows: screw size, channel depth, polymer melt density, screw RPM, screw pitch, flight width, number of flights, line speed, extruder size, etc.</p>
 <div id="installation" class="section level2">
 <h2>Installation</h2>
 <p><code>extrucal</code> can be installed PyPI using the following terminal command:</p>
@@ -244,7 +244,7 @@ pre code {
 <ul>
 <li><code>sheet_cal()</code>
 <ul>
-<li>This function calculates the required throughput for sheets given the outer diameter, line speed, solid polymer density, and number of die holes</li>
+<li>This function calculates the required throughput for sheets given the width, thickness, line speed, solid polymer density, and number of die holes</li>
 </ul></li>
 <li><code>sheet_table()</code>
 <ul>
