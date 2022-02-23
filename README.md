@@ -1,6 +1,6 @@
 [![ci-cd](https://github.com/johnwslee/extrucal/actions/workflows/ci-cd.yml/badge.svg)](https://github.com/johnwslee/extrucal/actions/workflows/ci-cd.yml)
 [![codecov](https://codecov.io/gh/johnwslee/extrucal/branch/main/graph/badge.svg?token=YT37K0ESGF)](https://codecov.io/gh/johnwslee/extrucal)
-[![Documentation Status](https://readthedocs.org/projects/extrucal/badge/?version=latest)](https://extrucal.readthedocs.io/en/latest/?badge=latest)
+[![Documentation Status](https://readthedocs.org/projects/extrucal/badge/?version=latest)](https://extrucal.readthedocs.io/en/latest/index.html)
 ![license status](https://img.shields.io/github/license/johnwslee/extrucal)
 
 # extrucal
