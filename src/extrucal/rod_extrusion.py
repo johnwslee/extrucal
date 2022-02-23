@@ -167,7 +167,11 @@ def rod_table(
     size_title = [f"{k}mm Ext" for k in np.arange(min_size, max_size+0.1, delta_size)]
     for l in l_speed:
         for s in size:
-            rpm_list.append(rod_cal(outer_d, l, s_density, n_holes)/throughput_cal(s, s*depth_percent, s_density*density_ratio))
+            rpm_list.append(
+              round(
+                (rod_cal(outer_d, l, s_density, n_holes)/
+                throughput_cal(s, s*depth_percent, s_density*density_ratio)),
+                2))
         table[f"{l}mpm"] = rpm_list
         rpm_list = []
     table_df = pd.DataFrame(table, index=size_title)
@@ -286,7 +290,8 @@ def rod_plot(
     size = [j for j in np.arange(min_size, max_size+0.1, delta_size)]
     for l in l_speed:
         for s in size:
-            rpm_list.append(rod_cal(outer_d, l, s_density, n_holes=1)/throughput_cal(s, s*depth_percent, s_density*density_ratio))
+            rpm_list.append(rod_cal(outer_d, l, s_density, n_holes=1)/
+            throughput_cal(s, s*depth_percent, s_density*density_ratio))
         table[l] = rpm_list
         rpm_list = []
     table_df = pd.DataFrame(table, index=size)
