@@ -374,6 +374,7 @@ pre code {
 </div>
 <div id="package-functions" class="section level2">
 <h2>Package Functions</h2>
+<p><strong>1. functions in <code>extrucal.extrusion</code></strong></p>
 <ul>
 <li><code>throughput_cal()</code>
 <ul>
@@ -388,11 +389,27 @@ pre code {
 <li>This function generates a plot containing the extrusion throughput with respect to channel depth and screw RPM</li>
 </ul></li>
 </ul>
+<p><strong>2. functions in <code>extrucal.cable_extrusion</code></strong></p>
+<ul>
+<li><code>req_throughput_cal()</code>
+<ul>
+<li>This function calculates the required throughput given the outer diameter, inner diameter, line speed, and solid polymer density</li>
+</ul></li>
+<li><code>req_rpm_table()</code>
+<ul>
+<li>This function generate a table containing the required screw RPM with respect to line speed and extruder size</li>
+</ul></li>
+<li><code>req_rpm_plot()</code>
+<ul>
+<li>This function generate a plot containing the required screw RPM with respect to line speed and extruder size</li>
+</ul></li>
+</ul>
 </div>
 <div id="usage" class="section level2">
 <h2>Usage</h2>
-<p><code>extrucal</code> can be used to calculate throughput in extrusion processes and to generate table and plot for throughput as a function of screw RPM and channel depth in the metering section of screw</p>
-<pre class="python"><code>from extrucal.extrusion import throughput_cal, throughput_table, throughput_plot</code></pre>
+<p><code>extrucal</code> can be used to calculate extrusion throughput and to generate tables and plots of various parameters in extrusion processes</p>
+<pre class="python"><code>from extrucal.extrusion import throughput_cal, throughput_table, throughput_plot
+from extrucal.cable_extrusion import req_throughput_cal, req_rpm_table, req_rpm_plot</code></pre>
 </div>
 <div id="dependencies" class="section level2">
 <h2>Dependencies</h2>

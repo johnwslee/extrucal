@@ -33,7 +33,7 @@ def throughput_cal(size, depth, density, rpm=1, pitch=None, w_flight=None, n_fli
     Returns
     -------
     throughput : float
-                 exturion throughput [kg/hr-RPM]
+                 exturion throughput [kg/hr]
 
     Examples
     --------
@@ -133,9 +133,9 @@ def throughput_table(
     Parameters
     ----------
     size        : int or float
-                  screw size [mm]
+                  Screw size [mm]
     density     : int or float
-                  melt density of polymeric material [kg/m^3]
+                  Melt density of polymeric material [kg/m^3]
     pitch       : int or float
                   Screw pitch [mm]
                   If None, squared pitch (=1D) is used
@@ -146,22 +146,22 @@ def throughput_table(
                   Number of flight [ea]
                   Default value is 1 (single-flighted)
     min_depth   : int or float
-                  minimum depth for calculation [mm]
+                  Minimum depth for calculation [mm]
                   If None, 2% of screw size is used for minimum depth
     max_depth   : int or float
-                  maximum depth for calculation [mm]
+                  Maximum depth for calculation [mm]
                   If None, 9% of screw size is used for maximum depth
     delta_depth : int or float
-                  the amount of increment in depth for calculation [mm]
+                  Amount of increment in depth for calculation [mm]
                   If None, 1% of screw size is used for depth increment
     min_rpm     : int or float
-                  minimum screw RPM for calculation [RPM]
+                  Minimum screw RPM for calculation [RPM]
                   Default value is 5 (5RPM)
     max_rpm     : int or float
-                  maximum screw RPM for calculation [RPM]
+                  Maximum screw RPM for calculation [RPM]
                   Default value is 50 (50RPM)
     delta_rpm   : int or float
-                  the amount of increment in RPM for calculation [RPM]
+                  Amount of increment in RPM for calculation [RPM]
                   Default value is 5 (5RPM)
 
     Returns
@@ -275,9 +275,9 @@ def throughput_plot(
     Parameters
     ----------
     size        : int or float
-                  screw size [mm]
+                  Screw size [mm]
     density     : int or float
-                  melt density of polymeric material [kg/m^3]
+                  Melt density of polymeric material [kg/m^3]
     pitch       : int or float
                   Screw pitch [mm]
                   If None, squared pitch (=1D) is used
@@ -288,22 +288,22 @@ def throughput_plot(
                   Number of flight [ea]
                   Default value is 1 (single-flighted)
     min_depth   : int or float
-                  minimum depth for calculation [mm]
+                  Minimum depth for calculation [mm]
                   If None, 2% of screw size is used for minimum depth
     max_depth   : int or float
-                  maximum depth for calculation [mm]
+                  Maximum depth for calculation [mm]
                   If None, 9% of screw size is used for maximum depth
     delta_depth : int or float
-                  the amount of increment in depth for calculation [mm]
+                  Amount of increment in depth for calculation [mm]
                   If None, 1% of screw size is used for depth increment
     min_rpm     : int or float
-                  minimum screw RPM for calculation [RPM]
+                  Minimum screw RPM for calculation [RPM]
                   Default value is 0 (0RPM)
     max_rpm     : int or float
-                  maximum screw RPM for calculation [RPM]
+                  Maximum screw RPM for calculation [RPM]
                   Default value is 50 (50RPM)
     delta_rpm   : int or float
-                  the amount of increment in RPM for calculation [RPM]
+                  Amount of increment in RPM for calculation [RPM]
                   Default value is 1 (1RPM)
 
     Returns
