@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 import altair as alt
 from extrucal.extrusion import throughput_cal
-from extrucal.cable_extrusion import sheet_cal, sheet_table, sheet_plot
+from extrucal.sheet_extrusion import sheet_cal, sheet_table, sheet_plot
 alt.renderers.enable('html')
 
 def test_input_data():
