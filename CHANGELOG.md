@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v1.3.0 (2022-02-23)
+### Feature
+* Adds additional function ([`b2b29a4`](https://github.com/johnwslee/extrucal/commit/b2b29a4404cf157b9b23071a992aa4b58c1fadd9))
+
 ## v1.2.0 (2022-02-23)
 ### Feature
 * Adds functions for tube extrusion ([`55d9f72`](https://github.com/johnwslee/extrucal/commit/55d9f720eec0df0f9901cf9044dd3e76f29bb25b))
