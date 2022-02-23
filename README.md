@@ -7,10 +7,10 @@
 
 **Author:** John W.S. Lee
 
-`extrucal` provides functions for calculating throughput in extrusion processes and for generating tables and plots for throughput with respect to screw RPM and channel depth in metering section.
+`extrucal` provides functions that calculate throughputs and screw RPMs for various types of extrusion processes. Theoretical throughputs can be calculated by using the screw geometry and the processing condition, whereas the throughputs required for extruded products(cable, tube, rod, and sheet) can be calculated by using the product geometry. Based on these calculated throughputs, `extrucal` functions can generate tables and plots that show the processing windows considering extruder size, line speed, and screw RPM.
 
-A large portion of arguments for the functions were given the typical values. The arguments for functions are as follows:
- screw size, channel depth, polymer melt density, screw RPM, screw pitch, flight width, number of flights
+A large portion of arguments for the functions are given the typical values. Some of the arguments for functions are as follows:
+ screw size, channel depth, polymer melt density, screw RPM, screw pitch, flight width, number of flights, line speed, extruder size, etc.
 
 ## Installation
 
