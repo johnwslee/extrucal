@@ -5,7 +5,7 @@
 
 # extrucal
 
-**Author:** John Lee
+**Author:** John W.S. Lee
 
 `extrucal` provides functions for calculating throughput in extrusion processes and for generating tables and plots for throughput with respect to screw RPM and channel depth in metering section.
 

@@ -2,7 +2,7 @@
 name = "extrucal"
 version = "1.4.2"
 description = "Provides functions for calculating various parameters in extrusion processes"
-authors = ["John Lee"]
+authors = ["John W.S. Lee"]
 license = "MIT"
 readme = "README.md"
 homepage = "https://github.com/johnwslee/extrucal"
