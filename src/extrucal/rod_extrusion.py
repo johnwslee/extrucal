@@ -290,7 +290,7 @@ def rod_plot(
     size = [j for j in np.arange(min_size, max_size+0.1, delta_size)]
     for l in l_speed:
         for s in size:
-            rpm_list.append(rod_cal(outer_d, l, s_density, n_holes=1)/
+            rpm_list.append(rod_cal(outer_d, l, s_density, n_holes)/
             throughput_cal(s, s*depth_percent, s_density*density_ratio))
         table[l] = rpm_list
         rpm_list = []
