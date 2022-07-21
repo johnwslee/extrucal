@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "extrucal"
-version = "1.4.11"
+version = "1.4.12"
 description = "Provides functions for calculating various parameters in extrusion processes"
 authors = ["John W.S. Lee"]
 license = "MIT"
