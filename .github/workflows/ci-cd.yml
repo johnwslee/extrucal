@@ -10,13 +10,13 @@ jobs:
     steps:
     # Step 2. Set up Python 3.9
     - name: Set up Python 3.9
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v3
       with:
         python-version: 3.9
         
     # Step 3. Check-out repository so we can access its contents
     - name: Check-out repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     # Step 4. Install poetry
     - name: Install poetry
@@ -54,13 +54,13 @@ jobs:
     steps:
     # Step 2. Set up Python 3.9
     - name: Set up Python 3.9
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v3
       with:
         python-version: 3.9
 
     # Step 3. Check-out repository so we can access its contents (disable main branch protection)
     - name: Check-out repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
       with:
         fetch-depth: 0
 
