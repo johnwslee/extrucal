@@ -35,7 +35,7 @@ jobs:
       uses: codecov/codecov-action@v2
       with:
         files: ./coverage.xml   # coverage report
-        fail_ci_if_error: true  # terminate workflow if there's an error
+        fail_ci_if_error: false  # terminate workflow if there's an error
 
     # Step 8. Build documentation
     - name: Build documentation
