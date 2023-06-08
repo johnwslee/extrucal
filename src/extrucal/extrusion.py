@@ -114,6 +114,7 @@ class ExtruderScrew:
                       Amount of increment in RPM for calculation [RPM]
                       Default value is 5 (5RPM)
         """
+        fig = go.Figure()
         rpms = [rpm for rpm in range(min_rpm, max_rpm, delta_rpm)]
         outputs = [
             throughput_cal(
