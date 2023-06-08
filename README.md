@@ -6,7 +6,7 @@
 
 **Author:** John W.S. Lee
 
-`extrucal` provides functions that calculate throughputs and screw RPMs for various types of extrusion processes. Theoretical throughputs can be calculated by using the screw geometry and the processing condition, whereas the throughputs required for extruded products(cable, tube, rod, and sheet) can be calculated by using the product geometry. Based on these calculated throughputs, `extrucal` functions can generate tables and plots that show the processing windows considering extruder size, line speed, and screw RPM.
+`extrucal` provides a class and functions that calculate throughputs and screw RPMs for various types of extrusion processes. Theoretical throughputs can be calculated by using the screw geometry and the processing condition, whereas the throughputs required for extruded products(cable, tube, rod, and sheet) can be calculated by using the product geometry. Based on these calculated throughputs, `extrucal` functions can generate tables and plots that show the processing windows considering extruder size, line speed, and screw RPM.
 
 A large portion of arguments for the functions are given the typical values. Some of the arguments for functions are as follows:
  screw size, channel depth, polymer melt density, screw RPM, screw pitch, flight width, number of flights, line speed, extruder size, etc.
@@ -19,7 +19,7 @@ A large portion of arguments for the functions are given the typical values. Som
 $ pip install extrucal
 ```
 
-## Package Functions
+## Package Class and Functions
 
 **1. Class and methods in `extrucal.extrusion`**
 
