@@ -114,7 +114,6 @@ class ExtruderScrew:
                       Amount of increment in RPM for calculation [RPM]
                       Default value is 5 (5RPM)
         """
-        fig = go.Figure()
         rpms = [rpm for rpm in range(min_rpm, max_rpm, delta_rpm)]
         outputs = [
             throughput_cal(
@@ -130,12 +129,23 @@ class ExtruderScrew:
         ]
         df = pd.DataFrame({"RPM": rpms, "Throughput[kg/hr]": outputs})
 
-        return fig.add_scatter(
+        fig = go.Figure()
+        fig.add_scatter(
             x=df["RPM"],
             y=df["Throughput[kg/hr]"],
             name=f"size={self.size}, depth={self.depth}, pitch={self.pitch}",
             mode="lines+markers",
         )
+        fig.update_layout(
+            title="Throughput vs RPM",
+            xaxis_title="RPM",
+            yaxis_title="Throughput[kg/hr]",
+            margin=dict(l=20, r=20, t=40, b=20),
+            width=800,
+            height=500,
+        )
+
+        return fig
 
 
 def throughput_cal(size, depth, density, rpm=1, pitch=None, w_flight=None, n_flight=1):
