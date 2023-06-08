@@ -141,8 +141,8 @@ class ExtruderScrew:
             xaxis_title="RPM",
             yaxis_title="Throughput[kg/hr]",
             margin=dict(l=20, r=20, t=40, b=20),
-            width=600,
-            height=400,
+            width=400,
+            height=300,
         )
 
         fig.show()
