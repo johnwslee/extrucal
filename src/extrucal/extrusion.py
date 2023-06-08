@@ -141,11 +141,11 @@ class ExtruderScrew:
             xaxis_title="RPM",
             yaxis_title="Throughput[kg/hr]",
             margin=dict(l=20, r=20, t=40, b=20),
-            width=800,
-            height=500,
+            width=600,
+            height=400,
         )
 
-        return fig
+        fig.show()
 
 
 def throughput_cal(size, depth, density, rpm=1, pitch=None, w_flight=None, n_flight=1):
