@@ -6,8 +6,7 @@ import plotly.graph_objects as go
 
 class ExtruderScrew:
     """
-    Class for an Extruder with pre-determined extrusion screew(metering section)
-    geometry
+    Class for an extruder with geometry of the metering section of the extrusion screw
     """
 
     def __init__(self, size, depth, pitch=None, w_flight=None, n_flight=1):
