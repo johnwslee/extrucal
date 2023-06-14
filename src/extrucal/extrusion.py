@@ -81,7 +81,7 @@ class ExtruderScrew:
         """
         rpms = [rpm for rpm in range(min_rpm, max_rpm, delta_rpm)]
         outputs = [
-            throughput_cal(
+            round(throughput_cal(
                 size=self.size,
                 depth=self.depth,
                 density=density,
@@ -89,7 +89,7 @@ class ExtruderScrew:
                 pitch=self.pitch,
                 w_flight=self.w_flight,
                 n_flight=self.n_flight,
-            )
+            ), 2)
             for rpm in range(min_rpm, max_rpm, delta_rpm)
         ]
         df = pd.DataFrame({"RPM": rpms, "Throughput[kg/hr]": outputs}).set_index("RPM")
@@ -116,7 +116,7 @@ class ExtruderScrew:
         """
         rpms = [rpm for rpm in range(min_rpm, max_rpm, delta_rpm)]
         outputs = [
-            throughput_cal(
+            round(throughput_cal(
                 size=self.size,
                 depth=self.depth,
                 density=density,
@@ -124,7 +124,7 @@ class ExtruderScrew:
                 pitch=self.pitch,
                 w_flight=self.w_flight,
                 n_flight=self.n_flight,
-            )
+            ), 2)
             for rpm in range(min_rpm, max_rpm, delta_rpm)
         ]
         df = pd.DataFrame({"RPM": rpms, "Throughput[kg/hr]": outputs})
@@ -275,7 +275,7 @@ def throughput_cal(size, depth, density, rpm=1, pitch=None, w_flight=None, n_fli
     ) / 2
     throughput_per_hr = throughput_per_sec * 60 * 60
 
-    return round(throughput_per_hr, 2)
+    return throughput_per_hr
 
 
 def throughput_table(
@@ -430,7 +430,7 @@ def throughput_table(
     for d in depth:
         for r in rpm:
             throughput_list.append(
-                throughput_cal(size, d, density, r, pitch, w_flight, n_flight)
+                round(throughput_cal(size, d, density, r, pitch, w_flight, n_flight), 2)
             )
         table[f"depth={d}"] = throughput_list
         throughput_list = []
@@ -590,7 +590,7 @@ def throughput_plot(
     for d in depth:
         for r in rpm:
             throughput_list.append(
-                throughput_cal(size, d, density, r, pitch, w_flight, n_flight)
+                round(throughput_cal(size, d, density, r, pitch, w_flight, n_flight), 2)
             )
         table[d] = throughput_list
         throughput_list = []
