@@ -154,19 +154,19 @@ def test_output():
     # Test the output of throughput()
     
     expected1 = 23.51
-    actual1 = throughput_cal(200, 10, 800, rpm=1, pitch=200, w_flight=20, n_flight=1)
+    actual1 = round(throughput_cal(200, 10, 800, rpm=1, pitch=200, w_flight=20, n_flight=1), 2)
     assert actual1 == expected1, "Calculated Value is wrong!!!"
     
     expected2 = 4540.04
-    actual2 = throughput_cal(250, 12, 800, rpm=100, pitch=300, w_flight=25, n_flight=2)
+    actual2 = round(throughput_cal(250, 12, 800, rpm=100, pitch=300, w_flight=25, n_flight=2), 2)
     assert actual2 == expected2, "Calculated Value is wrong!!!"
     
     expected3 = 1.69
-    actual3 = throughput_cal(20, 2, 1000, rpm=30, pitch=20, w_flight=2, n_flight=1)
+    actual3 = round(throughput_cal(20, 2, 1000, rpm=30, pitch=20, w_flight=2, n_flight=1), 2)
     assert actual3 == expected3, "Calculated Value is wrong!!!"
     
     expected4 = 12.24
-    actual4 = throughput_cal(150, 6.8, 800, rpm=1, pitch=206, w_flight=9, n_flight=1)
+    actual4 = round(throughput_cal(150, 6.8, 800, rpm=1, pitch=206, w_flight=9, n_flight=1), 2)
     assert actual4 == expected4, "Calculated Value is wrong!!!"
 
     # Test the output of throughput_table()
